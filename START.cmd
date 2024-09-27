@@ -2,10 +2,11 @@
 title Calculator Selector
 :main (  
   cls
-  echo Advanced or basic?
+  echo Advanced, basic or TDCalc?
   set /p "input=->"
   if /i %input%==advanced goto advancedStartup
   if /i %input%==basic goto basicStartup
+  if /i %input%==TDCalc goto TDCalcStartup
   echo Invalid input
   pause
   goto main
@@ -17,6 +18,11 @@ title Calculator Selector
 )
 
 :basicStartup (
-  start "" /b /cmd /c "FILE.frm >nul"
+  start "" /b /cmd /c "basicCalc.cmd >nul"
+  exit
+)
+
+:TDCalcStartup (
+  start "" /b /cmd /c "TDClassCalc.cmd >nul"
   exit
 )
