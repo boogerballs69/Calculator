@@ -1,24 +1,23 @@
 @echo off
-Title Basic Calculator
-:main (
-  cls
-  echo +, -, *, /?
-    set /p "operation=->"
-  echo How many numbers to calculate with? (10 max) (Input an integer only)
-    set /p "operationNum->"
-  if %operationNum% LEQ 0 goto invNum
-  if %operationNum% GTR 10 goto invNum
-  if %operationNum% GEQ 1 if %operationNum% LEQ 10 goto main2
+Title Basic Calc
+
+:top (
+  echo a, s, m, d?
+  set /p "input=->"
+  if /i %input%==a goto add
+  if /i %input%==s goto sub
+  if /i %input%==m goto mul
+  if /i %input%==d goto div
+rem else
   echo invalid
   pause
-  goto main
+  cls
+  goto top
 )
 
-:invNum (
-  if %operationNum% LEQ 0 echo Number must be > 0
-  pause
-goto main
-  if %operationNum% GTR 10 echo Number must be < or = 10
-  pause
-goto main
+:add (
+  echo #1:
+  set /p "num1=->"
+  echo #2:
+  set /p "num2=->"
 )
